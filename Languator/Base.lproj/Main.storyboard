@@ -45,7 +45,13 @@
                             <outlet property="delegate" destination="Csd-4S-Log" id="hnP-23-kuk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Languator" id="LCx-8x-veo"/>
+                    <navigationItem key="navigationItem" title="Languator" id="LCx-8x-veo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cQm-pQ-71o">
+                            <connections>
+                                <segue destination="eTM-pO-ppw" kind="presentation" id="9NG-UO-QCQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEZ-rK-5iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,15 +61,15 @@
         <scene sceneID="GbM-G5-nUq">
             <objects>
                 <tableViewController id="3nV-Sb-M41" customClass="WordDetailViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FBL-p5-oLe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FBL-p5-oLe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="sax-wY-8HE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="R5f-WP-L6l">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R5f-WP-L6l" id="HIN-tm-meO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -73,6 +79,9 @@
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="didEndOnExitFromForeignWordTextField" destination="3nV-Sb-M41" eventType="editingDidEndOnExit" id="C7D-Av-C5f"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -84,7 +93,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wuz-1i-8nC">
-                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wuz-1i-8nC" id="S8m-c6-PMR">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -113,6 +122,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Word" id="c0l-3U-fKU"/>
+                    <connections>
+                        <outlet property="foreignWordTextField" destination="Da1-Y0-3dn" id="r2f-T8-WIn"/>
+                        <outlet property="translationTextField" destination="DyB-5e-xDZ" id="T0O-kd-1p8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPi-jo-Zk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

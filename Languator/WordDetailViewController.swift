@@ -9,5 +9,16 @@
 import UIKit
 
 class WordDetailViewController: UITableViewController {
-
+    @IBOutlet weak var foreignWordTextField: UITextField!
+    @IBOutlet weak var translationTextField: UITextField!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        foreignWordTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func didEndOnExitFromForeignWordTextField() {
+        translationTextField.becomeFirstResponder()
+    }
 }
