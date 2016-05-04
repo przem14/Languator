@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */; };
-		F4B797C71CDA70DD00F7FA16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C61CDA70DD00F7FA16 /* ViewController.swift */; };
+		F4B797C71CDA70DD00F7FA16 /* LanguatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */; };
 		F4B797CA1CDA70DD00F7FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B797C81CDA70DD00F7FA16 /* Main.storyboard */; };
 		F4B797CC1CDA70DD00F7FA16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B797CB1CDA70DD00F7FA16 /* Assets.xcassets */; };
 		F4B797CF1CDA70DD00F7FA16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B797CD1CDA70DD00F7FA16 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		F4B797C11CDA70DD00F7FA16 /* Languator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Languator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4B797C61CDA70DD00F7FA16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguatorViewController.swift; sourceTree = "<group>"; };
 		F4B797C91CDA70DD00F7FA16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4B797CB1CDA70DD00F7FA16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4B797CE1CDA70DD00F7FA16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */,
-				F4B797C61CDA70DD00F7FA16 /* ViewController.swift */,
+				F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */,
 				F4B797C81CDA70DD00F7FA16 /* Main.storyboard */,
 				F4B797CB1CDA70DD00F7FA16 /* Assets.xcassets */,
 				F4B797CD1CDA70DD00F7FA16 /* LaunchScreen.storyboard */,
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4B797C71CDA70DD00F7FA16 /* ViewController.swift in Sources */,
+				F4B797C71CDA70DD00F7FA16 /* LanguatorViewController.swift in Sources */,
 				F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
