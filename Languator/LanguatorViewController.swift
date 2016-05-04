@@ -10,6 +10,10 @@ import UIKit
 
 class LanguatorViewController: UITableViewController {
 
+    var words: [(foreign: String, translation: String)] = [("cat", "kot"),
+                                                           ("dog", "pies"),
+                                                           ("horse", "koń")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,15 +29,20 @@ class LanguatorViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return words.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("WordCell")!
         
-        cell.textLabel!.text = "Word"
-        cell.detailTextLabel!.text = "Translation"
+        prepareCell(cell, row: indexPath.row)
         return cell
+    }
+    
+    func prepareCell(cell: UITableViewCell, row: Int) {
+        let word = words[row]
+        cell.textLabel!.text = word.foreign
+        cell.detailTextLabel!.text = word.translation
     }
 }
 
