@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Languator-->
@@ -48,7 +49,74 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEZ-rK-5iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="603"/>
+            <point key="canvasLocation" x="1103" y="-323"/>
+        </scene>
+        <!--Add Word-->
+        <scene sceneID="GbM-G5-nUq">
+            <objects>
+                <tableViewController id="3nV-Sb-M41" customClass="WordDetailViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FBL-p5-oLe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="sax-wY-8HE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="R5f-WP-L6l">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R5f-WP-L6l" id="HIN-tm-meO">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Foreign Word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Y0-3dn">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Da1-Y0-3dn" firstAttribute="centerY" secondItem="HIN-tm-meO" secondAttribute="centerY" id="BY3-ZG-bqe"/>
+                                                <constraint firstItem="Da1-Y0-3dn" firstAttribute="leading" secondItem="HIN-tm-meO" secondAttribute="leadingMargin" id="VHk-t7-LtD"/>
+                                                <constraint firstItem="Da1-Y0-3dn" firstAttribute="top" secondItem="HIN-tm-meO" secondAttribute="topMargin" constant="-1" id="oPa-75-fe1"/>
+                                                <constraint firstItem="Da1-Y0-3dn" firstAttribute="trailing" secondItem="HIN-tm-meO" secondAttribute="trailingMargin" id="u4o-rZ-ejQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wuz-1i-8nC">
+                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wuz-1i-8nC" id="S8m-c6-PMR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Translation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-5e-xDZ">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DyB-5e-xDZ" firstAttribute="centerY" secondItem="S8m-c6-PMR" secondAttribute="centerY" id="4xg-72-bfO"/>
+                                                <constraint firstItem="DyB-5e-xDZ" firstAttribute="top" secondItem="S8m-c6-PMR" secondAttribute="topMargin" constant="-1" id="CL4-4o-Bd8"/>
+                                                <constraint firstItem="DyB-5e-xDZ" firstAttribute="trailing" secondItem="S8m-c6-PMR" secondAttribute="trailingMargin" id="Yzh-5a-SUN"/>
+                                                <constraint firstItem="DyB-5e-xDZ" firstAttribute="leading" secondItem="S8m-c6-PMR" secondAttribute="leadingMargin" id="gcS-tR-Og9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="3nV-Sb-M41" id="hf5-DO-7hQ"/>
+                            <outlet property="delegate" destination="3nV-Sb-M41" id="IXG-oK-S5f"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Word" id="c0l-3U-fKU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPi-jo-Zk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2712" y="-323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wDN-Hv-b0w">
@@ -66,7 +134,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBE-7B-Udp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695" y="603"/>
+            <point key="canvasLocation" x="291" y="-323"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gx6-nW-Djg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eTM-pO-ppw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XFq-lz-HC6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3nV-Sb-M41" kind="relationship" relationship="rootViewController" id="SUS-CU-ZKe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOb-2r-MAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900" y="-323"/>
         </scene>
     </scenes>
 </document>
