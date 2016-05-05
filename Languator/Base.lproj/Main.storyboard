@@ -75,12 +75,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Foreign Word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Y0-3dn">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="foreignWordTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Foreign Word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-Y0-3dn">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="didEndOnExitFromForeignWordTextField" destination="3nV-Sb-M41" eventType="editingDidEndOnExit" id="C7D-Av-C5f"/>
+                                                        <outlet property="delegate" destination="3nV-Sb-M41" id="Lzc-uJ-ZgO"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -99,10 +100,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Translation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-5e-xDZ">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="translationTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Translation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-5e-xDZ">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="didEndOnExitFromTranslationTextField:" destination="3nV-Sb-M41" eventType="editingDidEndOnExit" id="H7k-Br-jL3"/>
+                                                        <outlet property="delegate" destination="3nV-Sb-M41" id="lmn-ke-Uou"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -127,13 +132,14 @@
                                 <action selector="cancel" destination="3nV-Sb-M41" id="1nA-l6-t1G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SN4-cp-8gu">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="SN4-cp-8gu">
                             <connections>
                                 <action selector="addWordItem" destination="3nV-Sb-M41" id="I7o-QE-FID"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="SN4-cp-8gu" id="nr0-7L-oeC"/>
                         <outlet property="foreignWordTextField" destination="Da1-Y0-3dn" id="r2f-T8-WIn"/>
                         <outlet property="translationTextField" destination="DyB-5e-xDZ" id="T0O-kd-1p8"/>
                     </connections>
