@@ -10,9 +10,18 @@ import UIKit
 
 class LanguatorViewController: UITableViewController, WordDetailViewControllerDelegate {
 
-    var words: [(foreign: String, translation: String)] = [("cat", "kot"),
-                                                           ("dog", "pies"),
-                                                           ("horse", "koń")]
+    var words: [WordItem]
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        words = [WordItem]()
+        
+        super.init(coder: aDecoder)
+        
+        words.append(WordItem(foreignWord: "cat", translation: "kot"))
+        words.append(WordItem(foreignWord: "dog", translation: "pies"))
+        words.append(WordItem(foreignWord: "horse", translation: "koń"))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,15 +58,15 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     func prepareCell(cell: UITableViewCell, row: Int) {
-        let word = words[row]
-        cell.textLabel!.text = word.foreign
-        cell.detailTextLabel!.text = word.translation
+        let wordItem = words[row]
+        cell.textLabel!.text = wordItem.foreignWord
+        cell.detailTextLabel!.text = wordItem.translation
     }
     
     
     // MARK: WordDetailViewControllerDelegate
     
-    func didCancelWordDetailViewController(controller: WordDetailViewController) {
+    func wordDetailViewControllerDidCancel(controller: WordDetailViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WordDetailViewControllerDelegate {
-    func didCancelWordDetailViewController(controller: WordDetailViewController)
+    func wordDetailViewControllerDidCancel(controller: WordDetailViewController)
 }
 
 class WordDetailViewController: UITableViewController {
@@ -33,6 +33,6 @@ class WordDetailViewController: UITableViewController {
     }
     
     @IBAction func cancel() {
-        delegate?.didCancelWordDetailViewController(self)
+        delegate?.wordDetailViewControllerDidCancel(self)
     }
 }

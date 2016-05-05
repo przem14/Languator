@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F44B43121CDBD6AA004C86E5 /* WordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B43111CDBD6AA004C86E5 /* WordItem.swift */; };
 		F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */; };
 		F4B797C71CDA70DD00F7FA16 /* LanguatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */; };
 		F4B797CA1CDA70DD00F7FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B797C81CDA70DD00F7FA16 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F44B43111CDBD6AA004C86E5 /* WordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordItem.swift; sourceTree = "<group>"; };
 		F4B797C11CDA70DD00F7FA16 /* Languator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Languator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguatorViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F44B43101CDBD67A004C86E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */,
+				F4B797D61CDA837100F7FA16 /* WordDetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F4B797B81CDA70DD00F7FA16 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +67,13 @@
 		F4B797C31CDA70DD00F7FA16 /* Languator */ = {
 			isa = PBXGroup;
 			children = (
+				F44B43101CDBD67A004C86E5 /* Controller */,
 				F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */,
-				F4B797C61CDA70DD00F7FA16 /* LanguatorViewController.swift */,
-				F4B797D61CDA837100F7FA16 /* WordDetailViewController.swift */,
 				F4B797C81CDA70DD00F7FA16 /* Main.storyboard */,
 				F4B797CB1CDA70DD00F7FA16 /* Assets.xcassets */,
 				F4B797CD1CDA70DD00F7FA16 /* LaunchScreen.storyboard */,
 				F4B797D01CDA70DD00F7FA16 /* Info.plist */,
+				F44B43111CDBD6AA004C86E5 /* WordItem.swift */,
 			);
 			path = Languator;
 			sourceTree = "<group>";
@@ -139,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44B43121CDBD6AA004C86E5 /* WordItem.swift in Sources */,
 				F4B797C71CDA70DD00F7FA16 /* LanguatorViewController.swift in Sources */,
 				F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */,
 				F4B797D71CDA837100F7FA16 /* WordDetailViewController.swift in Sources */,
@@ -295,6 +307,7 @@
 				F4B797D51CDA70DD00F7FA16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
