@@ -58,11 +58,12 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     override func tableView(tableView: UITableView,
-                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                            forRowAtIndexPath indexPath: NSIndexPath) {
-        words.removeAtIndex(indexPath.row)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        tableView.reloadData()
+                            editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .Default, title: "Edit", handler: self.editRowAction)
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: self.deleteRowAction)
+        
+        editAction.backgroundColor = UIColor.blueColor()
+        return [deleteAction, editAction]
     }
     
     func prepareCell(cell: UITableViewCell, row: Int) {
@@ -82,6 +83,19 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
         words.append(item)
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: Helpers
+    
+    private func editRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
+        
+    }
+    
+    private func deleteRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
+        words.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadData()
     }
 }
 
