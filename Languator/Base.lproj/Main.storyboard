@@ -48,10 +48,13 @@
                     <navigationItem key="navigationItem" title="Languator" id="LCx-8x-veo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cQm-pQ-71o">
                             <connections>
-                                <segue destination="eTM-pO-ppw" kind="presentation" identifier="WordDetailSegue" id="9NG-UO-QCQ"/>
+                                <segue destination="eTM-pO-ppw" kind="presentation" identifier="addWordSegue" id="9NG-UO-QCQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eTM-pO-ppw" kind="presentation" identifier="editWordSegue" id="B3H-6S-YOy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEZ-rK-5iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,4 +188,7 @@
             <point key="canvasLocation" x="1900" y="-323"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9NG-UO-QCQ"/>
+    </inferredMetricsTieBreakers>
 </document>

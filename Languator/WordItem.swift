@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WordItem {
+class WordItem: NSObject {
     var foreignWord = ""
     var translation = ""
     
@@ -16,4 +16,6 @@ class WordItem {
         self.foreignWord = foreignWord
         self.translation = translation
     }
+    
+    
 }

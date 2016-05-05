@@ -11,6 +11,7 @@ import UIKit
 protocol WordDetailViewControllerDelegate {
     func wordDetailViewControllerDidCancel(controller: WordDetailViewController)
     func wordDetailViewController(controller: WordDetailViewController, didAddWordItem item: WordItem)
+    func wordDetailViewController(controller: WordDetailViewController, didEditWordItem item: WordItem)
 }
 
 class WordDetailViewController: UITableViewController, UITextFieldDelegate {
@@ -20,7 +21,14 @@ class WordDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var delegate: WordDetailViewControllerDelegate?
+    var itemToEdit: WordItem?
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        prepareEditScreenIfNeeded()
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,13 +71,36 @@ class WordDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func addWordItem() {
-        delegate?.wordDetailViewController(self, didAddWordItem: createWordItem())
+        if let item = itemToEdit {
+            updateItemToEdit()
+            delegate?.wordDetailViewController(self, didEditWordItem: item)
+        } else {
+            delegate?.wordDetailViewController(self, didAddWordItem: createWordItem())
+        }
     }
     
     
     // MARK: Helpers
     
+    func prepareEditScreenIfNeeded() {
+        if let item = itemToEdit {
+            title = "Edit Word"
+            foreignWordTextField.text = item.foreignWord
+            translationTextField.text = item.translation
+            doneButton.enabled = true
+        }
+    }
+    
     func createWordItem() -> WordItem {
         return WordItem(foreignWord: foreignWordTextField.text!, translation: translationTextField.text!)
+    }
+    
+    func updateItemToEdit() {
+        guard let item = itemToEdit else {
+            return
+        }
+        
+        item.foreignWord = foreignWordTextField.text!
+        item.translation = translationTextField.text!
     }
 }

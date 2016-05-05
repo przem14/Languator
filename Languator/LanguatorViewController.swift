@@ -32,10 +32,13 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "WordDetailSegue" {
-            let navigateController = segue.destinationViewController as! UINavigationController
-            let wordDetailViewController = navigateController.topViewController as! WordDetailViewController
-            wordDetailViewController.delegate = self
+        switch segue.identifier! {
+        case "addWordSegue":
+            prepareForAddWordSegue(segue)
+        case "editWordSegue":
+            prepareForEditWordSegue(segue, sender: sender)
+        default:
+            break
         }
     }
     
@@ -79,6 +82,11 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func wordDetailViewController(controller: WordDetailViewController, didEditWordItem item: WordItem) {
+        tableView.reloadData()
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func wordDetailViewController(controller: WordDetailViewController, didAddWordItem item: WordItem) {
         words.append(item)
         tableView.reloadData()
@@ -89,13 +97,30 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     // MARK: Helpers
     
     private func editRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
-        
+        let itemToEdit = words[indexPath.row]
+        performSegueWithIdentifier("editWordSegue", sender: itemToEdit)
     }
     
     private func deleteRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
         words.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         tableView.reloadData()
+    }
+    
+    func unwrapWordDetailControllerFromSegue(segue: UIStoryboardSegue) -> WordDetailViewController {
+        let navigateController = segue.destinationViewController as! UINavigationController
+        return navigateController.topViewController as! WordDetailViewController
+    }
+    
+    func prepareForAddWordSegue(segue: UIStoryboardSegue) {
+        let wordDetailViewController = unwrapWordDetailControllerFromSegue(segue)
+        wordDetailViewController.delegate = self
+    }
+    
+    func prepareForEditWordSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let wordDetailViewController = unwrapWordDetailControllerFromSegue(segue)
+        wordDetailViewController.delegate = self
+        wordDetailViewController.itemToEdit = (sender as! WordItem)
     }
 }
 
