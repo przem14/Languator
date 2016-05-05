@@ -69,5 +69,11 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     func wordDetailViewControllerDidCancel(controller: WordDetailViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func wordDetailViewController(controller: WordDetailViewController, didAddWordItem item: WordItem) {
+        words.append(item)
+        tableView.reloadData()
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

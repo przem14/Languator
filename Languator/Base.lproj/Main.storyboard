@@ -127,6 +127,11 @@
                                 <action selector="cancel" destination="3nV-Sb-M41" id="1nA-l6-t1G"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SN4-cp-8gu">
+                            <connections>
+                                <action selector="addWordItem" destination="3nV-Sb-M41" id="I7o-QE-FID"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="foreignWordTextField" destination="Da1-Y0-3dn" id="r2f-T8-WIn"/>
