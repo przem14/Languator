@@ -57,6 +57,14 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
         return cell
     }
     
+    override func tableView(tableView: UITableView,
+                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                            forRowAtIndexPath indexPath: NSIndexPath) {
+        words.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadData()
+    }
+    
     func prepareCell(cell: UITableViewCell, row: Int) {
         let wordItem = words[row]
         cell.textLabel!.text = wordItem.foreignWord
