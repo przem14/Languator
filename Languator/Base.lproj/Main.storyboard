@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Languator" id="LCx-8x-veo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cQm-pQ-71o">
                             <connections>
-                                <segue destination="eTM-pO-ppw" kind="presentation" id="9NG-UO-QCQ"/>
+                                <segue destination="eTM-pO-ppw" kind="presentation" identifier="WordDetailSegue" id="9NG-UO-QCQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,7 +121,13 @@
                             <outlet property="delegate" destination="3nV-Sb-M41" id="IXG-oK-S5f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Word" id="c0l-3U-fKU"/>
+                    <navigationItem key="navigationItem" title="Add Word" id="c0l-3U-fKU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6P3-dr-8Bf">
+                            <connections>
+                                <action selector="cancel" destination="3nV-Sb-M41" id="1nA-l6-t1G"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="foreignWordTextField" destination="Da1-Y0-3dn" id="r2f-T8-WIn"/>
                         <outlet property="translationTextField" destination="DyB-5e-xDZ" id="T0O-kd-1p8"/>

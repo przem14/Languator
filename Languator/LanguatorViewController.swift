@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LanguatorViewController: UITableViewController {
+class LanguatorViewController: UITableViewController, WordDetailViewControllerDelegate {
 
     var words: [(foreign: String, translation: String)] = [("cat", "kot"),
                                                            ("dog", "pies"),
@@ -21,6 +21,17 @@ class LanguatorViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "WordDetailSegue" {
+            let navigateController = segue.destinationViewController as! UINavigationController
+            let wordDetailViewController = navigateController.topViewController as! WordDetailViewController
+            wordDetailViewController.delegate = self
+        }
+    }
+    
+    
+    // MARK: UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -41,6 +52,13 @@ class LanguatorViewController: UITableViewController {
         let word = words[row]
         cell.textLabel!.text = word.foreign
         cell.detailTextLabel!.text = word.translation
+    }
+    
+    
+    // MARK: WordDetailViewControllerDelegate
+    
+    func didCancelWordDetailViewController(controller: WordDetailViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

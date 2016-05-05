@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol WordDetailViewControllerDelegate {
+    func didCancelWordDetailViewController(controller: WordDetailViewController)
+}
+
 class WordDetailViewController: UITableViewController {
     @IBOutlet weak var foreignWordTextField: UITextField!
     @IBOutlet weak var translationTextField: UITextField!
+    
+    var delegate: WordDetailViewControllerDelegate?
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -18,7 +25,14 @@ class WordDetailViewController: UITableViewController {
         foreignWordTextField.becomeFirstResponder()
     }
     
+    
+    // MARK: Actions
+    
     @IBAction func didEndOnExitFromForeignWordTextField() {
         translationTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func cancel() {
+        delegate?.didCancelWordDetailViewController(self)
     }
 }
