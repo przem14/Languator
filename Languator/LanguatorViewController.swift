@@ -10,17 +10,15 @@ import UIKit
 
 class LanguatorViewController: UITableViewController, WordDetailViewControllerDelegate {
 
-    var words: [WordItem]
+    var wordItems: [WordItem]
     
     
     required init?(coder aDecoder: NSCoder) {
-        words = [WordItem]()
+        wordItems = [WordItem]()
         
         super.init(coder: aDecoder)
         
-        words.append(WordItem(foreignWord: "cat", translation: "kot"))
-        words.append(WordItem(foreignWord: "dog", translation: "pies"))
-        words.append(WordItem(foreignWord: "horse", translation: "koń"))
+        loadWordItems()
     }
     
     override func viewDidLoad() {
@@ -43,6 +41,45 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     
+    // MARK: Persisting Data
+    
+    func documentsDirectoryPath() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        return paths.first!
+    }
+    
+    func dataFilePath() -> String {
+        return documentsDirectoryPath().stringByAppendingPathComponent("WordItems.plist")
+    }
+    
+    func encodeWordItems(data: NSMutableData) {
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        
+        archiver.encodeObject(wordItems, forKey: "WordItems")
+        archiver.finishEncoding()
+    }
+    
+    func decodeWordItems(data: NSData) {
+        let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+        wordItems = unarchiver.decodeObjectForKey("WordItems") as! [WordItem]
+        unarchiver.finishDecoding()
+    }
+    
+    func saveWordItems() {
+        let data = NSMutableData()
+        
+        encodeWordItems(data)
+        data.writeToFile(dataFilePath(), atomically: true)
+    }
+    
+    func loadWordItems() {
+        guard NSFileManager.defaultManager().fileExistsAtPath(dataFilePath()) else { return }
+        guard let data = NSData(contentsOfFile: dataFilePath()) else { return }
+        
+        decodeWordItems(data)
+    }
+    
+    
     // MARK: UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -50,7 +87,7 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        return wordItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -70,7 +107,7 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     }
     
     func prepareCell(cell: UITableViewCell, row: Int) {
-        let wordItem = words[row]
+        let wordItem = wordItems[row]
         cell.textLabel!.text = wordItem.foreignWord
         cell.detailTextLabel!.text = wordItem.translation
     }
@@ -85,26 +122,32 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     func wordDetailViewController(controller: WordDetailViewController, didEditWordItem item: WordItem) {
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
+        
+        saveWordItems()
     }
     
     func wordDetailViewController(controller: WordDetailViewController, didAddWordItem item: WordItem) {
-        words.append(item)
+        wordItems.append(item)
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
+        
+        saveWordItems()
     }
     
     
     // MARK: Helpers
     
     private func editRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
-        let itemToEdit = words[indexPath.row]
+        let itemToEdit = wordItems[indexPath.row]
         performSegueWithIdentifier("editWordSegue", sender: itemToEdit)
     }
     
     private func deleteRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
-        words.removeAtIndex(indexPath.row)
+        wordItems.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         tableView.reloadData()
+        
+        saveWordItems()
     }
     
     func unwrapWordDetailControllerFromSegue(segue: UIStoryboardSegue) -> WordDetailViewController {

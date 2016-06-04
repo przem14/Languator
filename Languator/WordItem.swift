@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WordItem: NSObject {
+class WordItem: NSObject, NSCoding {
     var foreignWord = ""
     var translation = ""
     
@@ -18,4 +18,17 @@ class WordItem: NSObject {
     }
     
     
+    // MARK: NSCoding protocol
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        
+        foreignWord = aDecoder.decodeObjectForKey("foreignWord") as! String
+        translation = aDecoder.decodeObjectForKey("translation") as! String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(foreignWord, forKey: "foreignWord")
+        aCoder.encodeObject(translation, forKey: "translation")
+    }
 }
