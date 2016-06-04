@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xTC-Rk-D1U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sGz-Wx-WmM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,9 +7,50 @@
     </dependencies>
     <scenes>
         <!--Languator-->
+        <scene sceneID="Yry-nL-Mho">
+            <objects>
+                <tableViewController id="6pY-4m-gGD" customClass="LanguatorViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Fl-YT-7sA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LessonCell" textLabel="i8Y-3x-GnY" style="IBUITableViewCellStyleDefault" id="5gz-st-mFW">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gz-st-mFW" id="99d-Xz-0sB">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i8Y-3x-GnY">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6pY-4m-gGD" id="P6O-dG-vc3"/>
+                            <outlet property="delegate" destination="6pY-4m-gGD" id="hiq-Km-kjg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Languator" id="NC4-9b-rYe"/>
+                    <connections>
+                        <segue destination="Csd-4S-Log" kind="show" identifier="showLessonSegue" id="fbl-yX-wl5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLa-gZ-NK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-1101"/>
+        </scene>
+        <!--Lesson-->
         <scene sceneID="wji-NV-ClK">
             <objects>
-                <tableViewController id="Csd-4S-Log" customClass="LanguatorViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Csd-4S-Log" customClass="LessonViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HoB-wG-ajD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +86,7 @@
                             <outlet property="delegate" destination="Csd-4S-Log" id="hnP-23-kuk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Languator" id="LCx-8x-veo">
+                    <navigationItem key="navigationItem" title="Lesson" id="LCx-8x-veo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cQm-pQ-71o">
                             <connections>
                                 <segue destination="eTM-pO-ppw" kind="presentation" identifier="addWordSegue" id="9NG-UO-QCQ"/>
@@ -187,8 +228,27 @@
             </objects>
             <point key="canvasLocation" x="1900" y="-323"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="djH-Hk-BnT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sGz-Wx-WmM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q5p-YR-o6v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6pY-4m-gGD" kind="relationship" relationship="rootViewController" id="Iqw-FS-A7X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rr4-Rh-jar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="-1101"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="fbl-yX-wl5"/>
         <segue reference="9NG-UO-QCQ"/>
     </inferredMetricsTieBreakers>
 </document>

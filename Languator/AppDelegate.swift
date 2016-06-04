@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = navigationController.viewControllers.first! as! LanguatorViewController
         
         controller.dataModel = dataModel
-        
         return true
     }
 
@@ -53,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Helpers
     
     func saveData() {
-        dataModel.saveWordItems()
+        dataModel.saveLessons()
     }
 }
 

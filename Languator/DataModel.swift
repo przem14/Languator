@@ -9,7 +9,7 @@
 import Foundation
 
 class DataModel {
-    var wordItems = [WordItem]()
+    var lessons = [Lesson]()
     
     
     init() {
@@ -24,26 +24,26 @@ class DataModel {
     }
     
     func dataFilePath() -> String {
-        return documentsDirectoryPath().stringByAppendingPathComponent("WordItems.plist")
+        return documentsDirectoryPath().stringByAppendingPathComponent("Lessons.plist")
     }
     
-    func encodeWordItems(data: NSMutableData) {
+    func encodeLessons(data: NSMutableData) {
         let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
         
-        archiver.encodeObject(wordItems, forKey: "WordItems")
+        archiver.encodeObject(lessons, forKey: "Lessons")
         archiver.finishEncoding()
     }
     
-    func decodeWordItems(data: NSData) {
+    func decodeLessons(data: NSData) {
         let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        wordItems = unarchiver.decodeObjectForKey("WordItems") as! [WordItem]
+        lessons = unarchiver.decodeObjectForKey("Lessons") as! [Lesson]
         unarchiver.finishDecoding()
     }
     
-    func saveWordItems() {
+    func saveLessons() {
         let data = NSMutableData()
         
-        encodeWordItems(data)
+        encodeLessons(data)
         data.writeToFile(dataFilePath(), atomically: true)
     }
     
@@ -51,6 +51,6 @@ class DataModel {
         guard NSFileManager.defaultManager().fileExistsAtPath(dataFilePath()) else { return }
         guard let data = NSData(contentsOfFile: dataFilePath()) else { return }
         
-        decodeWordItems(data)
+        decodeLessons(data)
     }
 }
