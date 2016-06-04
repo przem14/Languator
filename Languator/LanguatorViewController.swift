@@ -122,16 +122,12 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
     func wordDetailViewController(controller: WordDetailViewController, didEditWordItem item: WordItem) {
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
-        
-        saveWordItems()
     }
     
     func wordDetailViewController(controller: WordDetailViewController, didAddWordItem item: WordItem) {
         wordItems.append(item)
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
-        
-        saveWordItems()
     }
     
     
@@ -146,8 +142,6 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
         wordItems.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         tableView.reloadData()
-        
-        saveWordItems()
     }
     
     func unwrapWordDetailControllerFromSegue(segue: UIStoryboardSegue) -> WordDetailViewController {
