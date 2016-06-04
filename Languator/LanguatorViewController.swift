@@ -10,16 +10,12 @@ import UIKit
 
 class LanguatorViewController: UITableViewController, WordDetailViewControllerDelegate {
 
-    var wordItems: [WordItem]
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        wordItems = [WordItem]()
-        
-        super.init(coder: aDecoder)
-        
-        loadWordItems()
+    var dataModel: DataModel!
+    var wordItems: [WordItem] {
+        get { return dataModel.wordItems }
+        set { dataModel.wordItems = newValue }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,45 +34,6 @@ class LanguatorViewController: UITableViewController, WordDetailViewControllerDe
         default:
             break
         }
-    }
-    
-    
-    // MARK: Persisting Data
-    
-    func documentsDirectoryPath() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        return paths.first!
-    }
-    
-    func dataFilePath() -> String {
-        return documentsDirectoryPath().stringByAppendingPathComponent("WordItems.plist")
-    }
-    
-    func encodeWordItems(data: NSMutableData) {
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        
-        archiver.encodeObject(wordItems, forKey: "WordItems")
-        archiver.finishEncoding()
-    }
-    
-    func decodeWordItems(data: NSData) {
-        let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        wordItems = unarchiver.decodeObjectForKey("WordItems") as! [WordItem]
-        unarchiver.finishDecoding()
-    }
-    
-    func saveWordItems() {
-        let data = NSMutableData()
-        
-        encodeWordItems(data)
-        data.writeToFile(dataFilePath(), atomically: true)
-    }
-    
-    func loadWordItems() {
-        guard NSFileManager.defaultManager().fileExistsAtPath(dataFilePath()) else { return }
-        guard let data = NSData(contentsOfFile: dataFilePath()) else { return }
-        
-        decodeWordItems(data)
     }
     
     
