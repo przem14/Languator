@@ -38,7 +38,13 @@
                             <outlet property="delegate" destination="6pY-4m-gGD" id="hiq-Km-kjg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Languator" id="NC4-9b-rYe"/>
+                    <navigationItem key="navigationItem" title="Languator" id="NC4-9b-rYe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2qV-zA-YZu">
+                            <connections>
+                                <segue destination="FUk-HF-TTh" kind="presentation" identifier="addLessonSegue" id="bUw-EM-vKr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Csd-4S-Log" kind="show" identifier="showLessonSegue" id="fbl-yX-wl5"/>
                     </connections>
@@ -100,6 +106,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEZ-rK-5iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1103" y="-323"/>
+        </scene>
+        <!--Add Lesson-->
+        <scene sceneID="YP3-hA-oXu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-P2-u0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="UlD-2J-8NK" customClass="LessonDetailViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FV2-KO-aai">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="DOt-pb-xAn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OCx-iG-EIF">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OCx-iG-EIF" id="ZZ5-D5-Li4">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lesson Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ip-Ee-BO3">
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="UlD-2J-8NK" eventType="editingDidEndOnExit" id="a85-2n-4cJ"/>
+                                                        <outlet property="delegate" destination="UlD-2J-8NK" id="OCr-bb-Yz2"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Ip-Ee-BO3" secondAttribute="bottom" constant="-2" id="0Gc-Po-Zkv"/>
+                                                <constraint firstItem="6Ip-Ee-BO3" firstAttribute="leading" secondItem="ZZ5-D5-Li4" secondAttribute="leadingMargin" id="qte-TZ-UM8"/>
+                                                <constraint firstItem="6Ip-Ee-BO3" firstAttribute="top" secondItem="ZZ5-D5-Li4" secondAttribute="topMargin" constant="-1" id="sJi-uf-8oM"/>
+                                                <constraint firstItem="6Ip-Ee-BO3" firstAttribute="trailing" secondItem="ZZ5-D5-Li4" secondAttribute="trailingMargin" id="uth-gt-4z0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="UlD-2J-8NK" id="mbV-j6-oA4"/>
+                            <outlet property="delegate" destination="UlD-2J-8NK" id="0cI-uE-i0t"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Lesson" id="5tr-gI-oRX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HQf-f7-btd">
+                            <connections>
+                                <action selector="cancel" destination="UlD-2J-8NK" id="Cbr-uu-1W9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="6KF-wV-a4G">
+                            <connections>
+                                <action selector="done" destination="UlD-2J-8NK" id="jur-xC-2PL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="6KF-wV-a4G" id="dLN-zz-CWG"/>
+                        <outlet property="lessonNameTextField" destination="6Ip-Ee-BO3" id="V3v-rY-HCd"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2712" y="-1101"/>
         </scene>
         <!--Add Word-->
         <scene sceneID="GbM-G5-nUq">
@@ -193,24 +264,6 @@
             <point key="canvasLocation" x="2712" y="-323"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="wDN-Hv-b0w">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xTC-Rk-D1U" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="exb-5u-i9d">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Csd-4S-Log" kind="relationship" relationship="rootViewController" id="uic-UZ-S6U"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dBE-7B-Udp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="291" y="-323"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="gx6-nW-Djg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eTM-pO-ppw" sceneMemberID="viewController">
@@ -246,9 +299,26 @@
             </objects>
             <point key="canvasLocation" x="291" y="-1101"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ale-fT-ubi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FUk-HF-TTh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJb-eA-x80">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UlD-2J-8NK" kind="relationship" relationship="rootViewController" id="bKZ-Fo-SZR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vl8-GN-r1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900" y="-1101"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fbl-yX-wl5"/>
-        <segue reference="9NG-UO-QCQ"/>
+        <segue reference="B3H-6S-YOy"/>
     </inferredMetricsTieBreakers>
 </document>

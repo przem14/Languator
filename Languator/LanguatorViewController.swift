@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LanguatorViewController: UITableViewController {
+class LanguatorViewController: UITableViewController, LessonDetailViewControllerDelegate {
     
     var dataModel: DataModel!
     private var lessons: [Lesson] {
@@ -19,13 +19,18 @@ class LanguatorViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lessons = [Lesson(name: "Lesson#1")]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showLessonSegue" {
+        switch segue.identifier! {
+        case "showLessonSegue":
             let controller = segue.destinationViewController as! LessonViewController
             controller.lesson = sender as! Lesson
+        case "addLessonSegue":
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! LessonDetailViewController
+            controller.delegate = self
+        default: break
         }
     }
     
@@ -45,5 +50,31 @@ class LanguatorViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("showLessonSegue", sender: lessons[indexPath.row])
+    }
+    
+    override func tableView(tableView: UITableView,
+                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                            forRowAtIndexPath indexPath: NSIndexPath) {
+        lessons.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadData()
+    }
+    
+    
+    
+    // MARK: LessonDetailViewControllerDelegate
+    
+    func lessonDetailViewControllerDidCancel(controller: LessonDetailViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func lessonDetailViewController(controller: LessonDetailViewController, didAddLesson lesson: Lesson) {
+        lessons.append(lesson)
+        tableView.reloadData()
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func lessonDetailViewController(controller: LessonDetailViewController, didEditLesson lesson: Lesson) {
+        
     }
 }

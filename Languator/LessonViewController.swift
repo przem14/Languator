@@ -19,6 +19,8 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = lesson.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +33,7 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
             prepareForAddWordSegue(segue)
         case "editWordSegue":
             prepareForEditWordSegue(segue, sender: sender)
-        default:
-            break
+        default: break
         }
     }
     

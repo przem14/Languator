@@ -17,6 +17,7 @@
 		F4F3E9171D032643009B06D9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3E9161D032643009B06D9 /* DataModel.swift */; };
 		F4F3E9191D033927009B06D9 /* LanguatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3E9181D033927009B06D9 /* LanguatorViewController.swift */; };
 		F4F3E91B1D0339BF009B06D9 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3E91A1D0339BF009B06D9 /* Lesson.swift */; };
+		F4F3E91D1D0347C2009B06D9 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3E91C1D0347C2009B06D9 /* LessonDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F4F3E9161D032643009B06D9 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F4F3E9181D033927009B06D9 /* LanguatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguatorViewController.swift; sourceTree = "<group>"; };
 		F4F3E91A1D0339BF009B06D9 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		F4F3E91C1D0347C2009B06D9 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,9 +50,10 @@
 		F44B43101CDBD67A004C86E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4F3E9181D033927009B06D9 /* LanguatorViewController.swift */,
+				F4F3E91C1D0347C2009B06D9 /* LessonDetailViewController.swift */,
 				F4B797C61CDA70DD00F7FA16 /* LessonViewController.swift */,
 				F4B797D61CDA837100F7FA16 /* WordDetailViewController.swift */,
-				F4F3E9181D033927009B06D9 /* LanguatorViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -74,9 +77,9 @@
 		F4B797C31CDA70DD00F7FA16 /* Languator */ = {
 			isa = PBXGroup;
 			children = (
+				F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */,
 				F4F3E9151D032630009B06D9 /* Model */,
 				F44B43101CDBD67A004C86E5 /* Controller */,
-				F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */,
 				F4B797C81CDA70DD00F7FA16 /* Main.storyboard */,
 				F4B797CB1CDA70DD00F7FA16 /* Assets.xcassets */,
 				F4B797CD1CDA70DD00F7FA16 /* LaunchScreen.storyboard */,
@@ -169,6 +172,7 @@
 			files = (
 				F4F3E9171D032643009B06D9 /* DataModel.swift in Sources */,
 				F44B43121CDBD6AA004C86E5 /* WordItem.swift in Sources */,
+				F4F3E91D1D0347C2009B06D9 /* LessonDetailViewController.swift in Sources */,
 				F4B797C71CDA70DD00F7FA16 /* LessonViewController.swift in Sources */,
 				F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */,
 				F4F3E9191D033927009B06D9 /* LanguatorViewController.swift in Sources */,
