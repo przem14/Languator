@@ -24,7 +24,11 @@ class TabBarViewController: UITabBarController {
     
     // Helpers
     
-    func startLesson() {
+    func startLesson(notification: NSNotification) {
         selectedIndex = learningViewControllerArrayIndex
+        let navigationController = selectedViewController! as! UINavigationController
+        navigationController.popToRootViewControllerAnimated(false)
+        navigationController.topViewController!.performSegueWithIdentifier("spellingTrainingSegue",
+                                                                           sender: notification.object! as! Lesson)
     }
 }

@@ -111,7 +111,7 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     // MARK: Actions
     
     @IBAction func startLesson() {
-        NSNotificationCenter.defaultCenter().postNotificationName(kStartLessonNotification, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(kStartLessonNotification, object: lesson)
     }
     
     

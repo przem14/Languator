@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1915" y="-1101"/>
         </scene>
-        <!--View Controller-->
+        <!--Training View Controller-->
         <scene sceneID="4qy-J1-low">
             <objects>
-                <viewController id="BlF-VG-ELA" sceneMemberID="viewController">
+                <viewController id="BlF-VG-ELA" customClass="TrainingViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="igJ-jM-dvv"/>
                         <viewControllerLayoutGuide type="bottom" id="vUG-yB-uYk"/>
@@ -87,11 +87,67 @@
                             <constraint firstItem="LRA-Z1-yuc" firstAttribute="centerY" secondItem="3GP-2z-nRN" secondAttribute="centerY" constant="-136" id="ejH-sF-mDz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="nqq-yG-EPL"/>
+                    <navigationItem key="navigationItem" id="j5r-SX-IlZ"/>
+                    <connections>
+                        <segue destination="rt8-Us-a0D" kind="show" identifier="spellingTrainingSegue" animates="NO" id="Ypk-Kh-McN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUd-yf-jwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="487"/>
+            <point key="canvasLocation" x="1915" y="487"/>
+        </scene>
+        <!--Spelling Training View Controller-->
+        <scene sceneID="L1J-Je-vV2">
+            <objects>
+                <viewController id="rt8-Us-a0D" customClass="SpellingTrainingViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6ts-hk-Hh1"/>
+                        <viewControllerLayoutGuide type="bottom" id="lKe-mq-9zJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7TW-zk-fMN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAI-ne-p6r">
+                                <rect key="frame" x="248" y="36" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Translation" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-6V-HZE">
+                                <rect key="frame" x="240" y="236" width="121" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rt8-Us-a0D" id="tYR-Go-SQS"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foreign Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1v-MP-yPg">
+                                <rect key="frame" x="206" y="89" width="189" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iAI-ne-p6r" firstAttribute="centerX" secondItem="7TW-zk-fMN" secondAttribute="centerX" id="BM4-gS-nm2"/>
+                            <constraint firstItem="Q1v-MP-yPg" firstAttribute="top" secondItem="iAI-ne-p6r" secondAttribute="bottom" constant="32" id="EHh-V2-S2s"/>
+                            <constraint firstItem="B9B-6V-HZE" firstAttribute="centerY" secondItem="7TW-zk-fMN" secondAttribute="centerY" constant="-49.5" id="ERG-0k-NBB"/>
+                            <constraint firstItem="B9B-6V-HZE" firstAttribute="centerX" secondItem="7TW-zk-fMN" secondAttribute="centerX" id="Rim-OF-tRt"/>
+                            <constraint firstItem="Q1v-MP-yPg" firstAttribute="centerX" secondItem="7TW-zk-fMN" secondAttribute="centerX" id="laI-hu-Tbv"/>
+                            <constraint firstItem="iAI-ne-p6r" firstAttribute="top" secondItem="6ts-hk-Hh1" secondAttribute="bottom" constant="16" id="zOr-eX-FxV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="foreignWordLabel" destination="Q1v-MP-yPg" id="q5E-5q-Y2r"/>
+                        <outlet property="lessonNameLabel" destination="iAI-ne-p6r" id="1Y0-CM-Bgj"/>
+                        <outlet property="translationTextField" destination="B9B-6V-HZE" id="RK9-4N-pNU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxF-CC-0Hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915" y="1264"/>
         </scene>
         <!--Lesson-->
         <scene sceneID="wji-NV-ClK">
@@ -390,12 +446,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="sGz-Wx-WmM" kind="relationship" relationship="viewControllers" id="OPT-v4-SG7"/>
-                        <segue destination="BlF-VG-ELA" kind="relationship" relationship="viewControllers" id="AQa-DC-WhU"/>
+                        <segue destination="rmE-7H-7Nl" kind="relationship" relationship="viewControllers" id="i8N-ne-ajs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4y-sE-R8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-31" y="-109"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hzy-iT-NBS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rmE-7H-7Nl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="nqq-yG-EPL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eCw-8Z-uEM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BlF-VG-ELA" kind="relationship" relationship="rootViewController" id="LeD-Wz-nZJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HG-Cu-tC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="487"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
