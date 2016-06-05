@@ -14,6 +14,10 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     private let editWordSegueId = "editWordSegue"
     
     private let wordCellId = "WordCell"
+    private let startLessonCellId = "StartLessonCell"
+    
+    private let numberOfSections = 2
+    private let startLessonCell = (section: 0, numberOfRows: 1)
     
     var lesson: Lesson!
     private var wordItems: [WordItem] {
@@ -48,12 +52,22 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == startLessonCell.section {
+            return startLessonCell.numberOfRows
+        }
         return wordItems.count
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return numberOfSections
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(wordCellId)!
+        if indexPath.section == startLessonCell.section {
+            return tableView.dequeueReusableCellWithIdentifier(startLessonCellId)!
+        }
         
+        let cell = tableView.dequeueReusableCellWithIdentifier(wordCellId)!
         prepareCell(cell, row: indexPath.row)
         return cell
     }
