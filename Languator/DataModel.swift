@@ -9,6 +9,10 @@
 import Foundation
 
 class DataModel {
+    
+    private let lessonsPlistFileName = "Lessons.plist"
+    private let lessonsKey = "Lessons"
+    
     var lessons = [Lesson]()
     
     
@@ -24,19 +28,19 @@ class DataModel {
     }
     
     func dataFilePath() -> String {
-        return documentsDirectoryPath().stringByAppendingPathComponent("Lessons.plist")
+        return documentsDirectoryPath().stringByAppendingPathComponent(lessonsPlistFileName)
     }
     
     func encodeLessons(data: NSMutableData) {
         let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
         
-        archiver.encodeObject(lessons, forKey: "Lessons")
+        archiver.encodeObject(lessons, forKey: lessonsKey)
         archiver.finishEncoding()
     }
     
     func decodeLessons(data: NSData) {
         let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
-        lessons = unarchiver.decodeObjectForKey("Lessons") as! [Lesson]
+        lessons = unarchiver.decodeObjectForKey(lessonsKey) as! [Lesson]
         unarchiver.finishDecoding()
     }
     

@@ -9,8 +9,13 @@
 import Foundation
 
 class WordItem: NSObject, NSCoding {
+    
+    private let foreignWordKey = "foreignWord"
+    private let translationKey = "translation"
+    
     var foreignWord = ""
     var translation = ""
+    
     
     init(foreignWord: String, translation: String) {
         self.foreignWord = foreignWord
@@ -23,12 +28,12 @@ class WordItem: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         super.init()
         
-        foreignWord = aDecoder.decodeObjectForKey("foreignWord") as! String
-        translation = aDecoder.decodeObjectForKey("translation") as! String
+        foreignWord = aDecoder.decodeObjectForKey(foreignWordKey) as! String
+        translation = aDecoder.decodeObjectForKey(translationKey) as! String
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(foreignWord, forKey: "foreignWord")
-        aCoder.encodeObject(translation, forKey: "translation")
+        aCoder.encodeObject(foreignWord, forKey: foreignWordKey)
+        aCoder.encodeObject(translation, forKey: translationKey)
     }
 }

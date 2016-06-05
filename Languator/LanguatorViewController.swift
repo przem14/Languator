@@ -10,6 +10,11 @@ import UIKit
 
 class LanguatorViewController: UITableViewController, LessonDetailViewControllerDelegate {
     
+    private let showLessonSegueId = "showLessonSegue"
+    private let addLessonSegueId = "addLessonSegue"
+    
+    private let lessonCellId = "LessonCell"
+    
     var dataModel: DataModel!
     private var lessons: [Lesson] {
         get { return dataModel.lessons }
@@ -23,16 +28,12 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
-        case "showLessonSegue":
-            let controller = segue.destinationViewController as! LessonViewController
-            controller.lesson = sender as! Lesson
-        case "addLessonSegue":
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! LessonDetailViewController
-            controller.delegate = self
+        case showLessonSegueId: prepareForShowLessonSegue(segue, sender: sender)
+        case addLessonSegueId: prepareForAddLessonSegue(segue)
         default: break
         }
     }
+    
     
     // MARK: - Table view data source
 
@@ -41,7 +42,7 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("LessonCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier(lessonCellId)!
         
         cell.textLabel!.text = lessons[indexPath.row].name
         return cell
@@ -49,7 +50,7 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier("showLessonSegue", sender: lessons[indexPath.row])
+        performSegueWithIdentifier(showLessonSegueId, sender: lessons[indexPath.row])
     }
     
     override func tableView(tableView: UITableView,
@@ -59,7 +60,6 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         tableView.reloadData()
     }
-    
     
     
     // MARK: LessonDetailViewControllerDelegate
@@ -76,5 +76,19 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     
     func lessonDetailViewController(controller: LessonDetailViewController, didEditLesson lesson: Lesson) {
         
+    }
+    
+    
+    // MARK: Helpers
+    
+    func prepareForShowLessonSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController as! LessonViewController
+        controller.lesson = sender as! Lesson
+    }
+    
+    func prepareForAddLessonSegue(segue: UIStoryboardSegue) {
+        let navigationController = segue.destinationViewController as! UINavigationController
+        let controller = navigationController.topViewController as! LessonDetailViewController
+        controller.delegate = self
     }
 }

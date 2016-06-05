@@ -10,6 +10,11 @@ import UIKit
 
 class LessonViewController: UITableViewController, WordDetailViewControllerDelegate {
 
+    private let addWordSegueId = "addWordSegue"
+    private let editWordSegueId = "editWordSegue"
+    
+    private let wordCellId = "WordCell"
+    
     var lesson: Lesson!
     private var wordItems: [WordItem] {
         get { return lesson.wordItems }
@@ -29,10 +34,8 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
-        case "addWordSegue":
-            prepareForAddWordSegue(segue)
-        case "editWordSegue":
-            prepareForEditWordSegue(segue, sender: sender)
+        case addWordSegueId: prepareForAddWordSegue(segue)
+        case editWordSegueId: prepareForEditWordSegue(segue, sender: sender)
         default: break
         }
     }
@@ -49,7 +52,7 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("WordCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier(wordCellId)!
         
         prepareCell(cell, row: indexPath.row)
         return cell
@@ -93,7 +96,7 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
     
     private func editRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
         let itemToEdit = wordItems[indexPath.row]
-        performSegueWithIdentifier("editWordSegue", sender: itemToEdit)
+        performSegueWithIdentifier(editWordSegueId, sender: itemToEdit)
     }
     
     private func deleteRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {

@@ -110,7 +110,6 @@
         <!--Add Lesson-->
         <scene sceneID="YP3-hA-oXu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-P2-u0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="UlD-2J-8NK" customClass="LessonDetailViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FV2-KO-aai">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -169,6 +168,7 @@
                         <outlet property="lessonNameTextField" destination="6Ip-Ee-BO3" id="V3v-rY-HCd"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-P2-u0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2712" y="-1101"/>
         </scene>
