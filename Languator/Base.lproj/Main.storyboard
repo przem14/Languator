@@ -47,6 +47,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Csd-4S-Log" kind="show" identifier="showLessonSegue" id="fbl-yX-wl5"/>
+                        <segue destination="FUk-HF-TTh" kind="presentation" identifier="editLessonSegue" id="Xuc-YJ-nBD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLa-gZ-NK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,5 +321,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="B3H-6S-YOy"/>
+        <segue reference="Xuc-YJ-nBD"/>
     </inferredMetricsTieBreakers>
 </document>

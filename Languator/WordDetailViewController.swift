@@ -86,12 +86,12 @@ class WordDetailViewController: UITableViewController, UITextFieldDelegate {
     // MARK: Helpers
     
     func prepareEditScreenIfNeeded() {
-        if let item = itemToEdit {
-            title = editViewTitle
-            foreignWordTextField.text = item.foreignWord
-            translationTextField.text = item.translation
-            doneButton.enabled = true
-        }
+        guard let item = itemToEdit else { return }
+        
+        title = editViewTitle
+        foreignWordTextField.text = item.foreignWord
+        translationTextField.text = item.translation
+        doneButton.enabled = true
     }
     
     func createWordItem() -> WordItem {

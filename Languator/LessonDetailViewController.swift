@@ -19,10 +19,15 @@ class LessonDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var lessonNameTextField: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    private let editViewTitle = "Edit Lesson"
+    
     var delegate: LessonDetailViewControllerDelegate?
+    var lessonToEdit: Lesson?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        prepareEditScreenIfNeeded()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,7 +55,22 @@ class LessonDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func done() {
-        let lesson = Lesson(name: lessonNameTextField.text!)
-        delegate?.lessonDetailViewController(self, didAddLesson: lesson)
+        if let lesson = lessonToEdit {
+            lesson.name = lessonNameTextField.text!
+            delegate?.lessonDetailViewController(self, didEditLesson: lesson)
+        } else {
+            delegate?.lessonDetailViewController(self, didAddLesson: Lesson(name: lessonNameTextField.text!))
+        }
+    }
+    
+    
+    // MARK: Helpers
+    
+    func prepareEditScreenIfNeeded() {
+        guard let lesson = lessonToEdit else { return }
+        
+        title = editViewTitle
+        lessonNameTextField.text = lesson.name
+        doneButton.enabled = true
     }
 }

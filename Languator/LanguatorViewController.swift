@@ -12,6 +12,7 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     
     private let showLessonSegueId = "showLessonSegue"
     private let addLessonSegueId = "addLessonSegue"
+    private let editLessonSegueId = "editLessonSegue"
     
     private let lessonCellId = "LessonCell"
     
@@ -30,6 +31,7 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
         switch segue.identifier! {
         case showLessonSegueId: prepareForShowLessonSegue(segue, sender: sender)
         case addLessonSegueId: prepareForAddLessonSegue(segue)
+        case editLessonSegueId: prepareForEditLessonSegue(segue, sender: sender)
         default: break
         }
     }
@@ -54,11 +56,12 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     }
     
     override func tableView(tableView: UITableView,
-                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
-                            forRowAtIndexPath indexPath: NSIndexPath) {
-        lessons.removeAtIndex(indexPath.row)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        tableView.reloadData()
+                            editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .Default, title: "Edit", handler: self.editRowAction)
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: self.deleteRowAction)
+        
+        editAction.backgroundColor = UIColor.blueColor()
+        return [deleteAction, editAction]
     }
     
     
@@ -75,20 +78,42 @@ class LanguatorViewController: UITableViewController, LessonDetailViewController
     }
     
     func lessonDetailViewController(controller: LessonDetailViewController, didEditLesson lesson: Lesson) {
-        
+        tableView.reloadData()
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     // MARK: Helpers
     
+    private func editRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
+        let lessonToEdit = lessons[indexPath.row]
+        performSegueWithIdentifier(editLessonSegueId, sender: lessonToEdit)
+    }
+    
+    private func deleteRowAction(action: UITableViewRowAction, indexPath: NSIndexPath) {
+        lessons.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadData()
+    }
+    
     func prepareForShowLessonSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let controller = segue.destinationViewController as! LessonViewController
-        controller.lesson = sender as! Lesson
+        let lessonDetailViewController = segue.destinationViewController as! LessonViewController
+        lessonDetailViewController.lesson = sender as! Lesson
+    }
+    
+    func unwrapLessonDetailViewControllerFromSegue(segue: UIStoryboardSegue) -> LessonDetailViewController {
+        let navigateController = segue.destinationViewController as! UINavigationController
+        return navigateController.topViewController as! LessonDetailViewController
     }
     
     func prepareForAddLessonSegue(segue: UIStoryboardSegue) {
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let controller = navigationController.topViewController as! LessonDetailViewController
-        controller.delegate = self
+        let lessonDetailViewController = unwrapLessonDetailViewControllerFromSegue(segue)
+        lessonDetailViewController.delegate = self
+    }
+
+    func prepareForEditLessonSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let lessonDetailViewController = unwrapLessonDetailViewControllerFromSegue(segue)
+        lessonDetailViewController.delegate = self
+        lessonDetailViewController.lessonToEdit = sender as? Lesson
     }
 }
