@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sGz-Wx-WmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yaN-D2-J1v">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -52,7 +52,46 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLa-gZ-NK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-1101"/>
+            <point key="canvasLocation" x="1915" y="-1101"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4qy-J1-low">
+            <objects>
+                <viewController id="BlF-VG-ELA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="igJ-jM-dvv"/>
+                        <viewControllerLayoutGuide type="bottom" id="vUG-yB-uYk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3GP-2z-nRN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No lesson started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRA-Z1-yuc">
+                                <rect key="frame" x="203" y="148" width="203" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a lesson and start learning activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlU-Wf-vmk">
+                                <rect key="frame" x="143" y="188" width="314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vlU-Wf-vmk" firstAttribute="top" secondItem="LRA-Z1-yuc" secondAttribute="bottom" constant="8" id="5WA-Ts-EBt"/>
+                            <constraint firstItem="LRA-Z1-yuc" firstAttribute="centerX" secondItem="3GP-2z-nRN" secondAttribute="centerX" constant="4.5" id="8Cu-SQ-mBD"/>
+                            <constraint firstItem="vlU-Wf-vmk" firstAttribute="centerX" secondItem="3GP-2z-nRN" secondAttribute="centerX" id="BdZ-VL-Y7j"/>
+                            <constraint firstItem="LRA-Z1-yuc" firstAttribute="centerY" secondItem="3GP-2z-nRN" secondAttribute="centerY" constant="-136" id="ejH-sF-mDz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="nqq-yG-EPL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUd-yf-jwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="487"/>
         </scene>
         <!--Lesson-->
         <scene sceneID="wji-NV-ClK">
@@ -73,6 +112,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcn-F1-O1F">
                                             <rect key="frame" x="277" y="7" width="47" height="30"/>
                                             <state key="normal" title="START"/>
+                                            <connections>
+                                                <action selector="startLesson" destination="Csd-4S-Log" eventType="touchUpInside" id="dv5-gA-afH"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -124,7 +166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEZ-rK-5iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-323"/>
+            <point key="canvasLocation" x="1915" y="-363"/>
         </scene>
         <!--Add Lesson-->
         <scene sceneID="YP3-hA-oXu">
@@ -189,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahp-P2-u0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="-1101"/>
+            <point key="canvasLocation" x="3524" y="-1101"/>
         </scene>
         <!--Add Word-->
         <scene sceneID="GbM-G5-nUq">
@@ -280,7 +322,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPi-jo-Zk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="-323"/>
+            <point key="canvasLocation" x="3524" y="-363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gx6-nW-Djg">
@@ -298,12 +340,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOb-2r-MAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-323"/>
+            <point key="canvasLocation" x="2712" y="-363"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Lessons-->
         <scene sceneID="djH-Hk-BnT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sGz-Wx-WmM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lessons" id="iWl-qp-gs2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="q5p-YR-o6v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -316,7 +359,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rr4-Rh-jar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-1101"/>
+            <point key="canvasLocation" x="1103" y="-1101"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ale-fT-ubi">
@@ -334,11 +377,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vl8-GN-r1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-1101"/>
+            <point key="canvasLocation" x="2712" y="-1101"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="Tbd-bB-m2V">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yaN-D2-J1v" customClass="TabBarViewController" customModule="Languator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="1lz-sf-FBq">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="sGz-Wx-WmM" kind="relationship" relationship="viewControllers" id="OPT-v4-SG7"/>
+                        <segue destination="BlF-VG-ELA" kind="relationship" relationship="viewControllers" id="AQa-DC-WhU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4y-sE-R8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="-109"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B3H-6S-YOy"/>
         <segue reference="Xuc-YJ-nBD"/>
+        <segue reference="9NG-UO-QCQ"/>
     </inferredMetricsTieBreakers>
 </document>

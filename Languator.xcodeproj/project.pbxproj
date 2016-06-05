@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F44B43121CDBD6AA004C86E5 /* WordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B43111CDBD6AA004C86E5 /* WordItem.swift */; };
+		F497BAAE1D0478380081CD52 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F497BAAD1D0478380081CD52 /* TabBarViewController.swift */; };
 		F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */; };
 		F4B797C71CDA70DD00F7FA16 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B797C61CDA70DD00F7FA16 /* LessonViewController.swift */; };
 		F4B797CA1CDA70DD00F7FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B797C81CDA70DD00F7FA16 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		F44B43111CDBD6AA004C86E5 /* WordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordItem.swift; sourceTree = "<group>"; };
+		F497BAAD1D0478380081CD52 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F4B797C11CDA70DD00F7FA16 /* Languator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Languator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B797C41CDA70DD00F7FA16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F4B797C61CDA70DD00F7FA16 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LessonViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -54,6 +56,7 @@
 				F4F3E91C1D0347C2009B06D9 /* LessonDetailViewController.swift */,
 				F4B797C61CDA70DD00F7FA16 /* LessonViewController.swift */,
 				F4B797D61CDA837100F7FA16 /* WordDetailViewController.swift */,
+				F497BAAD1D0478380081CD52 /* TabBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				F44B43121CDBD6AA004C86E5 /* WordItem.swift in Sources */,
 				F4F3E91D1D0347C2009B06D9 /* LessonDetailViewController.swift in Sources */,
 				F4B797C71CDA70DD00F7FA16 /* LessonViewController.swift in Sources */,
+				F497BAAE1D0478380081CD52 /* TabBarViewController.swift in Sources */,
 				F4B797C51CDA70DD00F7FA16 /* AppDelegate.swift in Sources */,
 				F4F3E9191D033927009B06D9 /* LanguatorViewController.swift in Sources */,
 				F4F3E91B1D0339BF009B06D9 /* Lesson.swift in Sources */,

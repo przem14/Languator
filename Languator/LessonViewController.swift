@@ -8,6 +8,8 @@
 
 import UIKit
 
+let kStartLessonNotification = "kStartLessonNotification"
+
 class LessonViewController: UITableViewController, WordDetailViewControllerDelegate {
 
     private let addWordSegueId = "addWordSegue"
@@ -103,6 +105,13 @@ class LessonViewController: UITableViewController, WordDetailViewControllerDeleg
         wordItems.append(item)
         tableView.reloadData()
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: Actions
+    
+    @IBAction func startLesson() {
+        NSNotificationCenter.defaultCenter().postNotificationName(kStartLessonNotification, object: nil)
     }
     
     
